@@ -29,6 +29,14 @@ def test_echo_int_multiplication():
     assert echo(3 * 7) == 21
 
 
+def test_echo_int_floor_division():
+    assert echo(19 // 10) == 1
+
+
+def test_echo_int_division_remainder():
+    assert echo(19 % 10) == 9
+
+
 def test_echo_with_string():
     assert echo("str") == "str"
 
