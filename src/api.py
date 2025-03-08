@@ -1,8 +1,5 @@
-from fastapi import FastAPI
-from src.app import echo
-
-
-app = FastAPI()
+from src.app import app
+from src.utils import echo
 
 
 @app.get("/echo/{x}")

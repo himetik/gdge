@@ -1,2 +1,4 @@
-def echo(x):
-    return x
+from fastapi import FastAPI
+
+
+app = FastAPI()
