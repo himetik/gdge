@@ -1,8 +1,16 @@
 from src.utils import echo
 
 
-def test_echo_with_integer():
+def test_echo_with_int():
     assert echo(0) == 0
+
+
+def test_echo_with_negative_int():
+    assert echo(-1) == -1
+
+
+def test_echo_with_float():
+    assert echo(0.1) == 0.1
 
 
 def test_echo_with_string():
