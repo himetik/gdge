@@ -1,2 +1,2 @@
-def echo(x):
+def echo(x=None):
     return x
