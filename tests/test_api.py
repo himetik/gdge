@@ -25,3 +25,11 @@ def test_get_echo_without_parameter():
     assert response.json() == {
         "detail": "Missing required parameter 'x' in the URL path. Use /echo/{x}."
     }
+
+
+def test_get_flag_by_country():
+    url = "http://localhost:5000/country_flag/?country=russia"
+    response = requests.get(url)
+    assert response.json() == {
+        "country flag": "🇷🇺"
+    }
