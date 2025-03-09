@@ -23,7 +23,7 @@ def get_echo_missing():
     )
 
 
-@app.get("/country_flag/")
+@app.get("/country_flag/{country}")
 def get_country_flag(country):
     flag = get_flag_by_country(countries, country)
     return {"country flag": flag}

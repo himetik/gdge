@@ -28,8 +28,6 @@ def test_get_echo_without_parameter():
 
 
 def test_get_flag_by_country():
-    url = "http://localhost:5000/country_flag/?country=russia"
+    url = "http://localhost:5000/country_flag/japan"
     response = requests.get(url)
-    assert response.json() == {
-        "country flag": "🇷🇺"
-    }
+    assert response.json() == {"country flag": "🇯🇵"}
