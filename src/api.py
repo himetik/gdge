@@ -2,7 +2,7 @@ from fastapi import HTTPException
 from fastapi.responses import RedirectResponse
 from src.app import app
 from src.utils import echo, get_flag_by_country
-from src.config import MAX_LENGTH
+from src.config import ECHO_MAX_LENGTH
 from src.instead_of_db import countries
 
 
@@ -13,10 +13,10 @@ def get_docs():
 
 @app.get("/echo/{x}")
 def get_echo(x: str):
-    if len(x) > MAX_LENGTH:
+    if len(x) > ECHO_MAX_LENGTH:
         raise HTTPException(
             status_code=400,
-            detail=f"Input too long. Max length is {MAX_LENGTH} characters."
+            detail=f"Input too long. Max length is {ECHO_MAX_LENGTH} characters."
         )
     return {"echo": echo(x)}
 
