@@ -74,3 +74,10 @@ def test_get_flag_by_country_success():
 
 def test_get_flag_without_country():
     assert get_flag_by_country(countries) is None
+
+
+def test_get_flag_without_countries():
+    try:
+        get_flag_by_country()
+    except TypeError as e:
+        assert str(e) == "get_flag_by_country() missing 1 required positional argument: 'countries'"
