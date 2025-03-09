@@ -10,7 +10,7 @@ on:
 
 jobs:
   lint-and-test:
-    runs-on: 3.12-alpine
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
