@@ -16,7 +16,7 @@ def get_echo(x: str):
 
 
 @app.get("/echo/")
-def get_echo_missing():
+def get_echo_without_data():
     raise HTTPException(
         status_code=400,
         detail="Missing required parameter 'x' in the URL path. Use /echo/{x}."
@@ -27,3 +27,11 @@ def get_echo_missing():
 def get_country_flag(country):
     flag = get_flag_by_country(countries, country)
     return {"country flag": flag}
+
+
+@app.get("/country_flag/")
+def get_country_flag_without_data():
+    raise HTTPException(
+        status_code=400,
+        detail="Missing required parameter 'country_flag' in the URL path. Use /echo/{country_flag}."
+    )

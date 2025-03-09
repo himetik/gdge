@@ -19,7 +19,7 @@ def test_get_echo_exceeded_length():
     }
 
 
-def test_get_echo_without_parameter():
+def test_get_echo_without_data():
     url = "http://localhost:5000/echo/"
     response = requests.get(url)
     assert response.json() == {
@@ -27,9 +27,17 @@ def test_get_echo_without_parameter():
     }
 
 
-def test_get_flag_by_country():
+def test_get_country_flag():
     url = "http://localhost:5000/country_flag/japan"
     response = requests.get(url)
     assert response.json() == {
         "country flag": "🇯🇵"
+    }
+
+
+def test_get_country_flag_without_data():
+    url = "http://localhost:5000/country_flag/"
+    response = requests.get(url)
+    assert response.json() == {
+        "detail": "Missing required parameter 'country_flag' in the URL path. Use /echo/{country_flag}."
     }
