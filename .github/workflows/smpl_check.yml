@@ -1,0 +1,35 @@
+name: Linter and Tests
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run linter
+        run: ruff check .
+
+      - name: Start API server
+        run: |
+          uvicorn src.api:app --host 0.0.0.0 --port 5000 &
+          sleep 5
+
+      - name: Run tests
+        run: pytest
