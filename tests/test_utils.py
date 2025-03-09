@@ -81,3 +81,7 @@ def test_get_flag_without_countries():
         get_flag_by_country()
     except TypeError as e:
         assert str(e) == "get_flag_by_country() missing 1 required positional argument: 'countries'"
+
+
+def test_get_nonexistent_flag():
+    assert get_flag_by_country(countries, "brightland") is None
