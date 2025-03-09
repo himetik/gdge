@@ -70,3 +70,7 @@ def test_echo_with_none():
 # get_flag_by_country function tests:
 def test_get_flag_by_country_success():
     assert get_flag_by_country(countries, "djibouti") == "🇩🇯"
+
+
+def test_get_flag_without_country():
+    assert get_flag_by_country(countries) is None
