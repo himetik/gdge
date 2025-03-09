@@ -17,3 +17,11 @@ def test_get_echo_exceeded_length():
     assert response.json() == {
         "detail": "Input too long. Max length is 80 characters."
     }
+
+
+def test_get_echo_without_parameter():
+    url = "http://localhost:5000/echo/"
+    response = requests.get(url)
+    assert response.json() == {
+        "detail": "Missing required parameter 'x' in the URL path. Use /echo/{x}."
+    }
