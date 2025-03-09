@@ -2,6 +2,14 @@ import requests
 from src.config import MAX_LENGTH
 
 
+def test_get_docs():
+    url = "http://localhost:5000/"
+    response = requests.get(url)
+    assert response.status_code == 200
+    assert '<div id="swagger-ui">' in response.text
+    assert "Swagger UI" in response.text
+
+
 def test_get_echo():
     url = "http://localhost:5000/echo/test"
     response = requests.get(url)

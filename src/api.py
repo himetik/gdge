@@ -1,8 +1,14 @@
 from fastapi import HTTPException
+from fastapi.responses import RedirectResponse
 from src.app import app
 from src.utils import echo, get_flag_by_country
 from src.config import MAX_LENGTH
 from src.instead_of_db import countries
+
+
+@app.get("/")
+def get_docs():
+    return RedirectResponse(url="/docs")
 
 
 @app.get("/echo/{x}")
