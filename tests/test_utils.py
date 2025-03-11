@@ -1,5 +1,5 @@
 from src.utils import echo, get_flag_by_country
-from src.config import COUNTRIES
+from src.instead_of_db import countries
 
 
 # echo function tests:
@@ -69,11 +69,11 @@ def test_echo_with_none():
 
 # get_flag_by_country function tests:
 def test_get_flag_by_country_success():
-    assert get_flag_by_country(COUNTRIES, "djibouti") == "🇩🇯"
+    assert get_flag_by_country(countries, "djibouti") == "🇩🇯"
 
 
 def test_get_flag_without_country():
-    assert get_flag_by_country(COUNTRIES) is None
+    assert get_flag_by_country(countries) is None
 
 
 def test_get_flag_without_countries():
@@ -84,4 +84,4 @@ def test_get_flag_without_countries():
 
 
 def test_get_nonexistent_flag():
-    assert get_flag_by_country(COUNTRIES, "brightland") is None
+    assert get_flag_by_country(countries, "brightland") is None
