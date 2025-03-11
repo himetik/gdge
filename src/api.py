@@ -27,8 +27,8 @@ def get_echo_without_data():
 
 @app.get("/country_flag/{country}")
 def get_country_flag(country):
-
-    flag = get_flag_by_country(countries, country)
+    valid_country = validate_endpoint_input(country)
+    flag = get_flag_by_country(countries, valid_country)
     return {"country flag": flag}
 
 
