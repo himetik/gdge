@@ -1,5 +1,5 @@
 import requests
-from src.config import MAX_LENGTH
+from src.config import ECHO_MAX_LENGTH
 
 
 def test_get_docs():
@@ -20,7 +20,7 @@ def test_get_echo():
 
 
 def test_get_echo_exceeded_length():
-    url = f'http://localhost:5000/echo/{"a" * (MAX_LENGTH + 1)}'
+    url = f'http://localhost:5000/echo/{"a" * (ECHO_MAX_LENGTH + 1)}'
     response = requests.get(url)
     assert response.json() == {
         "detail": "Input too long. Max length is 80 characters."
