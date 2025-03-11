@@ -49,3 +49,12 @@ def test_get_country_flag_without_data():
     assert response.json() == {
         "detail": "Missing required parameter 'country_flag' in the URL path. Use /echo/{country_flag}."
     }
+
+
+def test_get_country_flag_nonexistent_country():
+    url = "http://localhost:5000/country_flag/winterfell"
+    response = requests.get(url)
+    assert response.status_code == 404
+    assert response.json() == {
+        "detail": "The country not found",
+    }

@@ -29,6 +29,10 @@ def get_echo_without_data():
 def get_country_flag(country):
     valid_country = validate_length_input(country)
     flag = get_flag_by_country(countries, valid_country)
+
+    if flag is None:
+        raise HTTPException(status_code=404, detail="The country not found")
+
     return {"country flag": flag}
 
 
