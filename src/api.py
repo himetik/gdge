@@ -31,7 +31,10 @@ def get_country_flag(country):
     flag = get_flag_by_country(countries, valid_country)
 
     if flag is None:
-        raise HTTPException(status_code=404, detail="The country not found")
+        raise HTTPException(
+            status_code=404,
+            detail="The country not found"
+    )
 
     return {"country flag": flag}
 
