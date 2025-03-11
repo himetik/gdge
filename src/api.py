@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 from src.app import app
 from src.utils import echo, get_flag_by_country
 from src.instead_of_db import countries
-from src.validators import validate_endpoint_input
+from src.validators import validate_length_input
 
 
 @app.get("/")
@@ -13,7 +13,7 @@ def get_docs():
 
 @app.get("/echo/{x}")
 def get_echo(x: str):
-    validate_endpoint_input(x)
+    validate_length_input(x)
     return {"echo": echo(x)}
 
 
@@ -27,7 +27,7 @@ def get_echo_without_data():
 
 @app.get("/country_flag/{country}")
 def get_country_flag(country):
-    valid_country = validate_endpoint_input(country)
+    valid_country = validate_length_input(country)
     flag = get_flag_by_country(countries, valid_country)
     return {"country flag": flag}
 

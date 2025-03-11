@@ -2,7 +2,7 @@ from fastapi import HTTPException
 from src.config import ECHO_MAX_LENGTH
 
 
-def validate_endpoint_input(x):
+def validate_length_input(x):
     if len(x) > ECHO_MAX_LENGTH:
         raise HTTPException(
             status_code=400,
